@@ -58,7 +58,7 @@ const countUp = (num: number): number => {
     return num + 1;
 }
 
-console.log(countUp(3));
+console.log(countUp);
 
 
 /**** クラスとインターフェース ****/
@@ -142,59 +142,3 @@ console.log(type(3));
 console.log(type('文字列'));
 console.log(type(false));
 console.log(type([]));
-
-/**** 型エイリアス ****/
-
-type Teacher = {
-  teacher_name: string,
-  age: number,
-  subject: string
-}
-
-type Student = {
-  student_name: string,
-  age: number
-}
-
-const john:Student = {
-  student_name: "ジョン",
-  age: 17
-}
-
-console.log(john);
-
-
-/**** IS ****/
-
-// unknown型や、any型、Union型の型の絞り込みを行う
-const isNumber = (arg: unknown): arg is number => {
-  return typeof arg === "number";
-}
-
-if(isNumber(3)) {
-  console.log("数値です。");
-}
-
-if(isNumber("A")) {
-  console.log("数値以外です。");
-}
-
-/**** IN ****/
-
-// 型の絞り込み
-
-const studentOrTeacher = (target: Student | Teacher) => {
-  if("teacher_name" in target) {
-    console.log("先生です。");
-  }else {
-    console.log("生徒です。");
-  }
-}
-
-const emma:Teacher = {
-  teacher_name: "ジョン",
-  age: 17,
-  subject: "数学"
-}
-
-studentOrTeacher(emma);
